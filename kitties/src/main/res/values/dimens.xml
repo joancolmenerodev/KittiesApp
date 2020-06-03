@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="card_view_corner_radius_list">4dp</dimen>
+    <dimen name="card_view_elevation_list">4dp</dimen>
+    <dimen name="zero_dp">0dp</dimen>
+
+    <dimen name="default_padding">16dp</dimen>
+
+    <dimen name="detail_image_height">250dp</dimen>
+    <dimen name="detail_image_width">250dp</dimen>
+
+    <dimen name="default_margin_top_between_views">15dp</dimen>
+</resources>

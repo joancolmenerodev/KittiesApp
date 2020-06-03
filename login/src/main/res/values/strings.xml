@@ -1,0 +1,7 @@
+<resources>
+    <string name="username_text_hint">Username (joancolmenero)</string>
+    <string name="password_text_hint">Password (example)</string>
+    <string name="login_button_text">Login</string>
+    <string name="welcome_login_text">Welcome back %s</string>
+    <string name="login_fail_text">Login failed</string>
+</resources>

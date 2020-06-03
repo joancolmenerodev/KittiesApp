@@ -1,0 +1,11 @@
+<resources>
+    <string name="no_kitties_found">No kitties found</string>
+    <string name="service_unavailable_kitties_list">Service is unavailable</string>
+    <string name="filter_by_country">Filter by country</string>
+    <string name="country_picker_dialog_text">Country picker</string>
+    <string name="select_country_dialog_title">Select Country</string>
+    <string name="no_cat_found_by_country_code">No cat found by country code</string>
+    <string name="temperament_title_detail">Temperament</string>
+    <string name="description_detail_title">Description</string>
+    <string name="website_detail_title">Website</string>
+</resources>

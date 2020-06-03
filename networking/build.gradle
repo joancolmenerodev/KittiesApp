@@ -1,0 +1,59 @@
+apply plugin: 'com.android.library'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
+
+android {
+    compileSdkVersion AndroidConfig.COMPILE_SDK_VERSION
+    buildToolsVersion AndroidConfig.BUILD_TOOLS_VERSION
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    kotlinOptions {
+        jvmTarget = JavaVersion.VERSION_1_8.toString()
+    }
+    defaultConfig {
+        minSdkVersion AndroidConfig.MIN_SDK_VERSION
+        targetSdkVersion AndroidConfig.TARGET_SDK_VERSION
+        versionCode AndroidConfig.VERSION_CODE
+        versionName AndroidConfig.VERSION_NAME
+        testInstrumentationRunner AndroidConfig.TEST_INSTRUMENTATION_RUNNER
+    }
+    buildTypes {
+        release {
+            minifyEnabled true
+            debuggable false
+            buildConfigField 'String', "KittiesApiKey", KittiesApp_ApiKey
+            resValue 'string', "kitties_api_key", KittiesApp_ApiKey
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-project.txt'
+        }
+
+        debug {
+            minifyEnabled false
+            debuggable true
+            buildConfigField 'String', "KittiesApiKey", KittiesApp_ApiKey
+            resValue 'string', "kitties_api_key", KittiesApp_ApiKey
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-project.txt'
+        }
+    }
+
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+
+    implementation(LibrariesDependencies.RETROFIT_LOGGING_INTERCEPTOR)
+    implementation(LibrariesDependencies.RETROFIT_GSON_CONVERTER)
+
+    api(LibrariesDependencies.RETROFIT)
+    api(LibrariesDependencies.DAGGER)
+    api(LibrariesDependencies.DAGGER_ANDROID)
+    api(LibrariesDependencies.DAGGER_ANDROID_SUPPORT)
+    kapt LibrariesDependencies.DAGGER_ANDROID_KAPT
+    kapt LibrariesDependencies.DAGGER_KAPT
+
+    implementation project(ModuleDependencies.BASE_CORE)
+
+}

@@ -1,0 +1,63 @@
+apply plugin: 'com.android.library'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
+android {
+    compileSdkVersion AndroidConfig.COMPILE_SDK_VERSION
+    buildToolsVersion AndroidConfig.BUILD_TOOLS_VERSION
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    kotlinOptions {
+        jvmTarget = JavaVersion.VERSION_1_8.toString()
+    }
+    defaultConfig {
+        minSdkVersion AndroidConfig.MIN_SDK_VERSION
+        targetSdkVersion AndroidConfig.TARGET_SDK_VERSION
+        versionCode AndroidConfig.VERSION_CODE
+        versionName AndroidConfig.VERSION_NAME
+        testInstrumentationRunner AndroidConfig.TEST_INSTRUMENTATION_RUNNER
+
+    }
+    buildTypes {
+        release {
+            minifyEnabled true
+            debuggable false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-project.txt'
+        }
+
+        debug {
+            minifyEnabled false
+            debuggable true
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-project.txt'
+        }
+    }
+
+}
+
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation AndroidDependencies.CARDVIEW
+    implementation AndroidDependencies.SUPPORT_CONSTRAINT_LAYOUT
+    implementation AndroidDependencies.MATERIAL
+
+    implementation LibrariesDependencies.GSON
+
+    implementation LibrariesDependencies.DAGGER
+    implementation LibrariesDependencies.DAGGER_ANDROID
+    kapt LibrariesDependencies.DAGGER_ANDROID_KAPT
+    kapt LibrariesDependencies.DAGGER_KAPT
+    kapt LibrariesDependencies.DAGGER_ANNOTATION_PROCESSOR
+
+    implementation LibrariesDependencies.GLIDE
+    kapt LibrariesDependencies.GLIDE_COMPILER
+
+    api LibrariesDependencies.COUNTRY_FLAG
+
+    implementation project(ModuleDependencies.BASE_CORE)
+    implementation project(ModuleDependencies.BASE_PRESENTATION)
+    implementation project(ModuleDependencies.NETWORKING)
+}
