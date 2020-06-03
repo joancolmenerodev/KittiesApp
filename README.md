@@ -55,6 +55,32 @@ There are a few ways to open this project.
 1. Run `git clone https://github.com/joancolmenerodev/KittiesApp.git`
 2. Android Studio -> File -> Open
 
+### Login to the app
+
+To login to the app you need to use `joancolmenero` as an username and `example` as a password, because the webservice is not ready yet.
+
+### Screenshoots of the app
+
+Login
+</br>
+<img src="https://i.imgur.com/e87GC1c.png" width="30%">
+
+
+Kitties List
+</br>
+<img src="https://i.imgur.com/NPxTrW4.png" width="30%">
+
+
+Kitties Filter
+</br>
+<img src="https://i.imgur.com/JVv4gK8.png" width="30%">
+<img src="https://i.imgur.com/dgmj7Lj.png" width="30%">
+
+Kitties Detail
+</br>
+<img src="https://i.imgur.com/NCb1FMU.png" width="30%">
+
+
 ### Running tests
 
 `./gradlew test`
